@@ -1,0 +1,40 @@
+# RequestBody Add Product
+components:
+  requestBodies:
+    updateProduct:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Nombre del producto
+        description:
+          type: string
+          description: Descripción del producto (opcional)
+        code:
+          type: string
+          description: Código único de identificación del producto
+        image:
+          type: string
+          description: Nombre del archivo de la imagen del producto
+          format: binary
+        price:
+          type: number
+          description: Nombre del archivo de la imagen del producto
+        category:
+          type: string
+          description: Categoria del producto
+        stock:
+          type: number
+          description: Stock disponible del producto
+        active:
+          type: boolean
+          description: Estado del producto
+      example:
+        name: Camisa de lino cuello Mao
+        description: Fabricada en lino disponible en Negro, Azul y Blanco
+        code: 0001
+        image: 1670781443476-product-camisadelino-0001.jpg
+        price: 1000
+        category: camisas
+        stock: 100
+        active: true

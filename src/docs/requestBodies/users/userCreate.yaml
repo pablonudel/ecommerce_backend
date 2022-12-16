@@ -1,0 +1,27 @@
+# RequestBody Update User
+components:
+  requestBodies:
+    userCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Nombre del Usuario
+        lastname:
+          type: string
+          description: Apellido del Usuario
+        email:
+          type: string
+          description: email del usuario
+        password:
+          type: string
+          description: password del usuario
+        role:
+          type: string
+          description: Rol del usuario
+      example:
+        name: José
+        lastname: Pérez
+        email: joseperez@email.com
+        password: Jp1234
+        role: admin

@@ -1,0 +1,46 @@
+# Paths Get Users By ID   
+paths:
+  /api/users/{id}:
+    get:
+      summary: Obtiene los datos de un usario según su ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Id del usuario a obtener
+      responses:
+        "200":
+          description: El usuario se obtuvo correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "404":
+          description: Entidad no encontrada
+          content:
+            application/json:
+              example:
+                  status: 404
+                  message: Not Found
+                  error: Usuario con ID:6395e8b8f574ea7a6aa1886d no encontrado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

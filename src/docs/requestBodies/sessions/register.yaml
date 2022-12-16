@@ -1,0 +1,23 @@
+# RequestBody Sessions
+components:
+  requestBodies:
+    userRegister:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Nombre del usuario
+        lastname:
+          type: string
+          description: Apellido del usuario
+        email:
+          type: string
+          description: Email del usuario
+        password:
+          type: string
+          description: Password del usuario
+      example:
+        name: José
+        lastname: Pérez
+        email: joseperez@email.com
+        password: Jp1234

@@ -1,0 +1,49 @@
+# Paths Create User
+paths:
+  /api/users:
+    post:
+      summary: Agrega un usuario a la base de datos
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/userCreate'
+      responses:
+        "200":
+          description: El Usuario se agregó correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Error de solicitud
+          content:
+            application/json:
+                example:
+                  status: 400
+                  message: Bad Request
+                  error:
+                    nameError: El campo NOMBRE es requerido
+                    lastNameError: El campo APELLIDO es requerido
+                    emailError: El campo EMAIL es requerido
+                    passwordError: El campo PASSWORD es requerido
+                    roleError: El campo ROL es requerido
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

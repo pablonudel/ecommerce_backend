@@ -1,0 +1,31 @@
+# Paths Get Users     
+paths:
+  /api/users/:
+    get:
+      summary: Obtiene todos los usuarios
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Los usuarios se obtuvieron correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

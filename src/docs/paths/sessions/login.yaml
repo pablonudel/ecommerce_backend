@@ -1,0 +1,39 @@
+# Paths Sessions Login  
+paths:
+  /api/sessions/login:
+    post:
+      summary: Login de usuario
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/userLogin'
+      responses:
+        "200":
+          description: El usuario se logueo correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Error de datos ingresados
+          content:
+            application/json:
+                example:
+                  status: 400
+                  message: Bad Request
+                  error:
+                    emailError: El campo EMAIL es requerido
+                    passwordError: El campo EMAIL es requerido
+        "500":
+          description: Error de servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

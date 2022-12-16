@@ -1,0 +1,31 @@
+# Paths Get Orders     
+paths:
+  /api/orders/:
+    get:
+      summary: Obtiene todas las órdenes
+      tags:
+        - Orders
+      responses:
+        "200":
+          description: Las órdenes se obtuvieron correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Orders'
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

@@ -1,0 +1,65 @@
+# Paths Update Product
+paths:
+  /api/products/{id}:
+    put:
+      summary: Actualiza un producto según su ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Id del producto a actualizar
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/requestBodies/updateProduct'
+      responses:
+        "200":
+          description: El producto se actualizo correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Error de solicitud
+          content:
+            application/json:
+                example:
+                  status: 400
+                  message: Bad Request
+                  error:
+                    nameError: El campo NOMBRE es requerido
+                    codeError: El campo CÓDIGO es requerido
+                    priceError: El campo PRECIO es requerido
+                    categoryError: El campo CATEGORIA es requerido
+                    stockError: El campo STOCK es requerido
+                    activeError: El campo ACTIVE es requerido
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "404":
+          description: Entidad no encontrada
+          content:
+            application/json:
+              example:
+                  status: 404
+                  message: Not Found
+                  error: Producto con ID:6395e8b8f574ea7a6aa1886d no encontrado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

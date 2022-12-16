@@ -1,0 +1,49 @@
+# Paths Add Product
+paths:
+  /api/products:
+    post:
+      summary: Agrega un producto a la base de datos
+      tags:
+        - Products
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/requestBodies/Product'
+      responses:
+        "200":
+          description: El producto se agregó correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Error de solicitud
+          content:
+            application/json:
+                example:
+                  status: 400
+                  message: Bad Request
+                  error:
+                    nameError: El campo NOMBRE es requerido
+                    codeError: El campo CÓDIGO es requerido
+                    priceError: El campo PRECIO es requerido
+                    stockError: El campo STOCK es requerido
+                    fileError: Imagen requerida
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

@@ -1,0 +1,25 @@
+# Paths Sessions Logout  
+paths:
+  /api/sessions/logout:
+    get:
+      summary: Lougout de usuario
+      tags:
+        - Sessions
+      responses:
+        "200":
+          description: El usuario se deslogueo correctamente
+          content:
+            application/json:
+                example:
+                  status: 200
+                  message: Success
+                  data: Deslogueado
+        "500":
+          description: Error de servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

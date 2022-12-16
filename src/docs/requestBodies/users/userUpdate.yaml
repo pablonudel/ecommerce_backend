@@ -1,0 +1,31 @@
+# RequestBody Update User
+components:
+  requestBodies:
+    userUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Nombre del Usuario
+        lastname:
+          type: string
+          description: Apellido del Usuario
+        email:
+          type: string
+          description: email del usuario
+        password:
+          type: string
+          description: password del usuario
+        role:
+          type: string
+          description: Rol del usuario
+        avatar:
+          type: string
+          description: Nombre del archivo del avatar del usario
+          format: binary
+      example:
+        name: José
+        lastname: Pérez
+        email: joseperez@email.com
+        password: Jp1234
+        avatar: 1670781443476-avatar-headshot.jpg

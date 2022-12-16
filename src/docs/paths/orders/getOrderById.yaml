@@ -1,0 +1,46 @@
+# Paths Get Order By ID  
+paths:
+  /api/orders/{id}:
+    get:
+      summary: Obtiene una orden según su ID
+      tags:
+        - Orders
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Id de la orden a obtener
+      responses:
+        "200":
+          description: Las orden se obtuvo correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "404":
+          description: Entidad no encontrada
+          content:
+            application/json:
+              example:
+                  status: 404
+                  message: Not Found
+                  error: Orden con ID:63987e4e916fa542568c9f0d no encontrada
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

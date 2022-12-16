@@ -1,0 +1,111 @@
+# Schemas Orders
+components:
+  schemas:
+    Orders:
+      type: object
+      properties:
+        status:
+          type: number
+          description: Status Code
+        msg:
+          type: string
+          description: Nombre del Status
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Id de la orden
+              products:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Id del producto
+                    name:
+                      type: string
+                      description: Nombre del producto
+                    code:
+                      type: string
+                      description: Código del producto
+                    price:
+                      type: number
+                      description: Precio del producto
+                    qty:
+                      type: number
+                      description: Cantidad de items agregados
+                    subTotal:
+                      type: number
+                      description: Precio subtotal del producto según el precio y la cantidad
+              user:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Id del usuario
+                  name:
+                    type: string
+                    description: Nombre del usuario
+                  lastname:
+                    type: string
+                    description: Apellido del usuario
+                  email:
+                    type: string
+                    description: Email del usuario
+              total:
+                type: number
+                description: Precio total de la orden
+              status:
+                type: string
+                description: Estado de la orden
+              
+      example:
+        status: 200
+        msg: Success
+        data: 
+          - id: 63986c9ef3d2487dd80c1718
+            products:
+              - id: 6395e8b8f574ea7a6aa1886d
+                name: Producto 1
+                code: ABC123
+                price: 1000
+                qty: 3
+                subTotal: 3000
+              - id: 6395e8b8f57das515561das6
+                name: Producto 2
+                code: ABC123
+                price: 2000
+                qty: 1
+                subTotal: 2000
+            user:
+              id: 63986c23f3d2487dd80c170a
+              name: José
+              lastname: Pérez
+              email: joseperez@email.com
+            total: 5000
+            status: abierta
+          - id: 6395e8b8f57das515561das6
+            products:
+              - id: 6395e8b8f574ea7a6aa1886d
+                name: Producto 1
+                code: ABC123
+                price: 1000
+                qty: 3
+                subTotal: 3000
+              - id: 6395e8b8f574ea7a6aa1886d
+                name: Producto 2
+                code: ABC123
+                price: 2000
+                qty: 3
+                subTotal: 6000
+            user:
+              id: 63986c23f3d2487dd80c170a
+              name: Julia
+              lastname: González
+              email: juliagonzalez@email.com
+            total: 9000
+            status: abierta

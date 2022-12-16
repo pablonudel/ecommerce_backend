@@ -1,0 +1,46 @@
+# Paths Delete Product Cart by Id
+paths:
+  /api/cart/products/{id_prod}:
+    delete:
+      summary: Elimina un producto por su ID del carrito del usuario en sesión
+      tags:
+        - Cart
+      parameters:
+        - in: path
+          name: id_prod
+          schema:
+            type: string
+          required: true
+          description: Id del producto
+      responses:
+        "200":
+          description: Producto eliminado del carrito correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "404":
+          description: Entidad no encontrada
+          content:
+            application/json:
+              example:
+                  status: 404
+                  message: Not Found
+                  error: Producto con ID:6395e8b8f574ea7a6aa1886d encontrado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

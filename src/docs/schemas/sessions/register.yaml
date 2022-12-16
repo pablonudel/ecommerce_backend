@@ -1,0 +1,43 @@
+# Schema Login
+components:
+  schemas:
+    Register:
+      type: object
+      properties:
+        status:
+          type: number
+          description: Status Code
+        msg:
+          type: string
+          desription: Status Name
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: id del usuario
+            name:
+              type: string
+              description: nombre del usuario
+            lastname:
+              type: string
+              description: apellido del usuario
+            email:
+              type: string
+              description: email del usuario
+            role:
+              type: string
+              description: rol del usuario
+            cart:
+              type: string
+              description: id del carrito del usuario
+      example:
+        status: 200
+        msg: Success
+        data:
+          id: 637241fe90ba352a87e78c9c
+          name: José
+          lastname: López
+          email: joselopez@email.com
+          role: user
+          cart: 637241fe90ba352a87e1135d

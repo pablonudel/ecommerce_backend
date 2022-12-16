@@ -1,0 +1,41 @@
+# Paths Sessions Register  
+paths:
+  /api/sessions/register:
+    post:
+      summary: Registro de usuario
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/userRegister'
+      responses:
+        "200":
+          description: El usuario se registro correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register'
+        "400":
+          description: Error de datos ingresados
+          content:
+            application/json:
+                example:
+                  status: 400
+                  message: Bad Request
+                  error:
+                    nameError: El campo NOMBRE es requerido
+                    lastNameError: El campo APELLIDO es requerido
+                    emailError: El campo EMAIL es requerido
+                    passwordError: El campo PASSWORD es requerido
+        "500":
+          description: Error de servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

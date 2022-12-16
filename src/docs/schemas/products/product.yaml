@@ -1,0 +1,51 @@
+# Schemas Product
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        status:
+          type: number
+          description: Status Code
+        msg:
+          type: string
+          description: Nombre del Status
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: ID autogenerada
+            name:
+              type: string
+              description: Nombre del producto
+            description:
+              type: string
+              description: Descripción opcional del producto
+            image:
+              type: string
+              description: Imagen del producto
+            price:
+              type: number
+              description: Precio del producto
+            category:
+              type: string
+              description: Categoría del producto
+            stock:
+              type: number
+              description: Stock del producto
+            active:
+              type: boolean
+              description: Estado del producto
+      example:
+        status: 200
+        msg: Success
+        data: 
+          id: 6395e8b8f574ea7a6aa1886d
+          name: Camisa de lino cuello Mao
+          description: Fabricada en lino disponible en Negro, Azul y Blanco
+          image: 1670781443476-product-camisadelino-0001.jpg
+          price: 1000
+          category: camisas
+          stock: 100
+          active: true

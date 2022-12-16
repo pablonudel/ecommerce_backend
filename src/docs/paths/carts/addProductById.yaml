@@ -1,0 +1,60 @@
+# Paths Add Product Cart by Id
+paths:
+  /api/cart/products/{id_prod}:
+    post:
+      summary: Agrega la cantidad de un producto del carrito
+      tags:
+        - Cart
+      parameters:
+        - in: path
+          name: id_prod
+          schema:
+            type: string
+          required: true
+          description: Id del producto a agregar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/AddProductCart'
+      responses:
+        "200":
+          description: La cantidad se agregó correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+        "400":
+          description: Error de solicitud
+          content:
+            application/json:
+                example:
+                  status: 400
+                  message: Bad Request
+                  error:
+                    qtyError: El campo CANTIDAD es requerido
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "404":
+          description: Entidad no encontrada
+          content:
+            application/json:
+              example:
+                  status: 404
+                  message: Not Found
+                  error: Producto con ID:6395e8b8f574ea7a6aa1886d encontrado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

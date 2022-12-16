@@ -1,0 +1,8 @@
+# RequestBody Update Order
+components:
+  requestBodies:
+    orderUpdate:
+      type: string
+      description: Estado de la orden (abierta | cancelada | enviada | cerrada)
+      example:
+        status: cerrada

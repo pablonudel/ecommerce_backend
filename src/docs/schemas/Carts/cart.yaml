@@ -1,0 +1,56 @@
+# Schemas Cart
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        status:
+          type: number
+          description: Status Code
+        msg:
+          type: string
+          description: Nombre del Status
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Nombre del producto
+              code:
+                type: string
+                description: Códico único del producto
+              image:
+                type: string
+                description: Imagen del producto
+              price:
+                type: number
+                description: Precio del producto
+              qty:
+                type: number
+                description: Cantidad de items del producto
+              subTotal:
+                type: number
+                description: Precio subtotal según cantidad de items
+              _id:
+                type: string
+                description: ID del producto
+      example:
+        status: 200
+        msg: Success
+        data:
+          - name: Camisa de lino cuello Mao
+            code: CL0003
+            image: 1670781443476-product-camisadelino-0001.jpg
+            price: 1000
+            qty: 3
+            subTotal: 3000
+            _id: 6395e8b8f574ea7a6aa1886d
+          - name: Remera manga larga
+            code: RML0004
+            image: 1670781443476-product-remeramangalarga-0002.jpg
+            price: 700
+            qty: 3
+            subTotal: 2100
+            _id: 6395e8b8f574ea7a6aa1886e

@@ -1,0 +1,48 @@
+# Paths Delete User By ID   
+paths:
+  /api/users/{id}:
+    delete:
+      summary: Elimina un usuario por su ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Id del usuario a eliminar
+      responses:
+        "200":
+          description: El usuario se eliminó correctamente correctamente
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  data: Usuario con ID:6395e8b8f574ea7a6aa1886d eliminado con éxito
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "404":
+          description: Entidad no encontrada
+          content:
+            application/json:
+              example:
+                  status: 404
+                  message: Not Found
+                  error: Usuario con ID:6395e8b8f574ea7a6aa1886d no encontrado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error

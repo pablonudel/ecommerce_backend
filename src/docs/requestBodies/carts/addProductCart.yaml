@@ -1,0 +1,11 @@
+# RequestBody Add Product
+components:
+  requestBodies:
+    AddProductCart:
+      type: object
+      properties:
+        qty:
+          type: number
+          description: Cantidad de items del producto a agregar
+      example:
+        qty: 3

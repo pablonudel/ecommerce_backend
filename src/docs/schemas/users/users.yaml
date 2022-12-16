@@ -1,0 +1,55 @@
+# Schemas Users
+components:
+  schemas:
+    Users:
+      type: object
+      properties:
+        status:
+          type: number
+          description: Status Code
+        msg:
+          type: string
+          description: Nombre del Status
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: ObjecId
+                description: ID autogenerada
+              name:
+                type: string
+                description: Nombre del usuario
+              lastname:
+                type: string
+                description: Apellido del usuario
+              email:
+                type: string
+                description: Email del usuario
+              avatar:
+                type: string
+                description: Nombre del archivo del avatar (si es cargado por el usuario)
+              role:
+                type: string
+                description: Role del usuario (default:user)
+              cart:
+                type: ObjecId
+                description: ID autogenerado del carrito
+      example:
+        status: 200
+        msg: Success
+        data: 
+          - id: 637241fe90ba352a87e78c9c
+            name: José
+            lastname: Pérez
+            email: joseperez@email.com
+            avatar: 1670781443476-avatar-headshot.jpg
+            role: user
+            cart: 637241fe90ba352a87e1135d
+          - id: 637241fe90das15dase78c9c
+            name: Julia
+            lastname: González
+            email: juliagonzalez@email.com
+            role: user
+            cart: 637241fe90ba352a87e78c9c

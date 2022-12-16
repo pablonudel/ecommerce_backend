@@ -1,0 +1,42 @@
+# Paths Save Order     
+paths:
+  /api/orders/:
+    post:
+      summary: Guarda la orden y envia email al usuario en sesión
+      tags:
+        - Orders
+      responses:
+        "200":
+          description: Las orden se generó correctamente
+          content:
+            application/json:
+              schema:
+                example:
+                  status: 200
+                  message: Success
+                  data: Orden creada con éxito
+        "401":
+          description: No autorizado
+          content:
+            application/json:
+              example:
+                  status: 401
+                  message: Unauthorized
+                  error: No autorizado
+        "404":
+          description: Entidad no encontrada
+          content:
+            application/json:
+              example:
+                  status: 404
+                  message: Not Found
+                  error: Carrito con ID:6395e8b8f574ea7a6aa1886d no encontrado
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              example:
+                  status: 500
+                  message: Internal Server Error
+                  error:
+                    errorType: mensaje del error
