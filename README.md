@@ -19,13 +19,14 @@ ADMIN
 
 USER
 - Visualizar Productos
-- Modificar sus datos
+- Modificar sus datos y agregar un avatar
 - Eliminar su cuenta
 - Modificar su Carrito
 - Generar y visualizar sus Órdenes
 
 USUARIO NO REGISTRADO
 - Visualizar Productos
+- Registrarse
 
 A continuación las versiones de las dependencias instaladas y sus referencias
 
